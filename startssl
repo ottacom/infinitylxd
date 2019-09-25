@@ -1,0 +1,2 @@
+pkill -9 gunicorn
+gunicorn --certfile ./ssl/cert.pem --keyfile ./ssl/key.pem -b 0.0.0.0:8000 infinitylxd:app &

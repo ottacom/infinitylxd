@@ -1,0 +1,80 @@
+#!/usr/bin/python
+from flask import Flask, request ,json
+from flask_restful import Resource, Api
+from lib import loadconfig
+from ldap3 import Server, Connection, ALL
+
+app = Flask(__name__)
+api = Api(app)
+todos = {}
+data = {}
+
+
+#Defining functions 
+def domain_security_check (domain):
+	if str(loadconfig.trusted_domains) == 'ALL':
+		return True
+	else:
+		if str(domain) in str(loadconfig.trusted_domains):
+			return True
+		else:
+			return False
+
+	
+def ldap_search(s_objectclass,s_pattern,s_attribute,s_pagedsize):
+        try:
+                server = Server(loadconfig.ldap_server(), get_info=ALL)
+                conn = Connection(server , loadconfig.ldap_username(), loadconfig.ldap_password(), auto_bind=True)
+		conn.search(search_base = loadconfig.ldap_search(),
+                                 search_filter = '(&(objectclass='+s_objectclass+')('+s_pattern+'))',
+                                 attributes = [ s_attribute[0],s_attribute[1] ],
+                                 paged_size = s_pagedsize)
+		if conn.response :
+			conn.response = '{querystatus : 302},{'+str(conn.response)[2:-1]
+			return str(conn.response)
+		else :
+   			return '{querystatus : 404}' 
+        except Exception, error:
+                 print error
+
+
+
+
+
+
+
+
+class EmailSignup(Resource):
+	    def put(self, emailsignup):
+		 if request.headers['Content-Type'] == 'text/plain':
+		        return "Text Message: " + request.data
+
+	    	 elif request.headers['Content-Type'] == 'application/json':
+        		return "JSON Message: " + json.dumps(request.json)
+
+	    	 elif request.headers['Content-Type'] == 'application/octet-stream':
+        		f = open('./binary', 'wb')
+     			f.write(request.data)
+                	f.close()
+       		 	return "Binary message written!"
+
+   	    	 else:
+        	     	return "415 Unsupported Media Type ;)"	
+	#	print (request.json)
+	#	if domain_security_check(request.form['data'].split('@')[-1]) == True:
+	#		response=ldap_search('inetOrgPerson','mail='+str(request.form['data']),['cn','uid'],1)
+#			return response
+	#	else:
+	#	   	return "401 - Forbidden"  
+
+
+		
+#Load configuration file
+loadconfig.load_configuration()
+
+#api.add_resource(EmailSignup, '/<string:emailsignup>')
+@app.route('/emailsignup', methods = ['POST'])
+
+
+if __name__ == '__infinitylxd__':
+    app.run(debug=True)

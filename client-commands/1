@@ -1,0 +1,1 @@
+{"dn":[ u"cn=frp,dc=dmi,dc=dk", "attributes": {u"cn": [u"frp"], u"uid": [u"frp"]}, "raw_attributes": {u"cn": ["frp"], u"uid": ["frp"]}, "raw_dn": "cn=frp,dc=dmi,dc=dk", "type": "searchResEntry"}

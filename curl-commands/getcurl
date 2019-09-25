@@ -1,0 +1,2 @@
+ curl -i https://10.136.70.3:8000/todo/api/v1.0/tasks --insecure
+ curl -H 'Content-Type: application/json' -X POST -d '{"email":"frwp@dmi.dk"}' https://127.0.0.1:8000/signup --insecure

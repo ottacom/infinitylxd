@@ -1,0 +1,28 @@
+{
+        "0": [ {"message": "The email provided is not RFC compliant","color" : "red"}],
+        "1": [ {"message": "Unrecognized command","color" : "red"}],
+        "2": [ {"message": "Unconventional answer from ilxdserver","color" : "red"}],
+        "3": [ {"message": "Make sure your password is at lest 8 letters","color" : "red"}],
+        "4": [ {"message": "Make sure your password has a number in it","color" : "red"}],
+        "5": [ {"message": "Make sure your password has a capital letter in it","color" : "red"}],
+        "6": [ {"message": "Your password doesn't match match","color" : "red"}],
+        "7": [ {"message": "Your password seems strong enough","color" : "red"}],
+        "8": [ {"message": "Make sure your password has a lower letter in it","color" : "red"}],
+        "9": [ {"message": "Make sure your password has at least one special char","color" : "red"}],
+        "10": [ {"message": "Please choose your password (lower,capital,numbers,specialchar):","color" : "yellow"}],
+        "11": [ {"message": "Please confirm yor password:","color" : "white"}],
+        "12": [ {"message": "Password:","color" : "white"}],
+        "13": [ {"message": "Please insert your current password:","color" : "white"}],
+        "201": [ {"message": "Signup completed! Now you can start to use infinitylxd","color" : "green"}],
+        "202": [ {"message": "You are logged in infinitylxd!","color" : "green"}],
+        "202-1": [ {"message": "You are already logged in infinitylxd, please consider to logout and loing again in case","color" : "yellow"}],
+        "202-2": [ {"message": "You are logged out","color" : "green"}],
+        "202-3": [ {"message": "You are logged out from all your session","color" : "green"}],
+        "202-4": [ {"message": "A recovery email has been sent to your mailbox , please check","color" : "green"}],
+        "202-5": [ {"message": "Your password has been changed ","color" : "green"}],
+        "403": [ {"message": "Security alert,  access forbidden","color" : "red"}],
+        "409": [ {"message": "User already registered, please use ilxd user -a recovery to recover you password","color" : "red"}],
+        "415": [ {"message": "Unsupported answer","color" : "red"}],
+        "500": [ {"message": "Unexpected irrecoverable server error","color" : "red"}]
+        
+}

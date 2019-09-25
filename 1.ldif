@@ -1,0 +1,6 @@
+dn: cn=fratbrother,o=delta
+cn: fratbrother
+sn: fratbrother
+objectclass: top
+objectclass: person
+userPassword: {CRYPT}fr9XG7KvGCqIE

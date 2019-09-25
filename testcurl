@@ -1,0 +1,1 @@
+curl -i https://127.0.0.1:8000/emailsignup -d "data=frp@dmi.dk" -X PUT --insecure
